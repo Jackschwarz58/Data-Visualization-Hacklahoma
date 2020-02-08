@@ -1,4 +1,4 @@
-##Data Types
+## Data Types
 
 * Arrays
 * Linked List
