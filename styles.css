@@ -71,5 +71,9 @@ p {
   height: 150px;
   background-color: #DDDDDD;
   color: #555555;
-  text-align: center;
+  text-align: right;
+}
+
+.footer input {
+    align-content: 
 }
