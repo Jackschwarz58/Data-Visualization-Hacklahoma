@@ -52,59 +52,116 @@
                     <p id="bubble-content"></p>
                 </div> 
 
-                <h3>Output<br></h3>
-                <p id="output-section"></p>
+
+                <p>
+                <h3>Insertion sort</h3>
+
+                <p>Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms </p>
+
+                <ul>
+                    Select the first Unsorted Element
+
+                    Swap other elements to right create the correct position and shift unsorted element
+
+                    Advance the marker to the right one element
+                </ul>
 
 
-                <script>
-                    var coll = document.getElementsByClassName("collapsible");
-                    var i;
+                <h3>Selection sort</h3> 
 
-                    for (i = 0; i < coll.length; i++) {
-                        coll[i].addEventListener("click", function() {
-                            this.classList.toggle("active");
-                            var content = this.nextElementSibling;
-                            if (content.style.display === "block") {
-                                content.style.display = "none";
-                            } else {
-                                content.style.display = "block";
-                            }
-                        });
-                    } 
-                </script>
+                <p>Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end</p>
+                <ul>
+                    Select the Lowest element in the remaining array
+
+                    Bring it to the starting position
+
+                    Change the counter for unsorted array by one
+                </ul>
+
+                <h3>Quick Sort</h3>
+
+                <p>Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.</p>
+                <ul>
+                    Bring the pivot to its appropriate position such that left of the pivot is smaller and right is greater
+
+                    Quick Sort the left part 
+
+                    Quick Sort the right part
+                </ul>
+
+
+                <h3>Bubble Sort </h3> 
+
+                <p>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. Called bubble sort because it acts as though the larger numbers bubble to the top.</p>
+                <ul>
+                    Compares adjacent elements. 
+
+                    Swaps if they are out of order
+
+                    Repeat over through array until all is sorted.
+                </ul>
+
+                <h3>Merge Sort</h3>
+
+                <p>Merge sort is a divide-and-conquer algorithm based on the idea of breaking down a list into several sub-lists. </p>
+                <ul>
+                    Divides input array in two halves, 
+                    calls itself for the two halves until array size is 1 
+                    and then merges the two sorted halves.
+                </ul>
+
+
+                </p>
+
+            <script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                } 
+            </script>
+        </div>
+        </div>
+
+    <div class="sidebar" id="sidebar">
+        <div id="sidebar-options">
+            <div id = "sidebar-label">Select Which to Run <br></div>
+
+            <div class="sidenav-item">
+                <input type="checkbox" id="insertion-check" name="insertion-check" value="1" checked>
+                <label for="insertion-check">Insertion Sort</label>
             </div>
-        </div>
-
-        <div class="sidebar" id="sidebar">
-            <div id="sidebar-options">
-                <div id = "sidebar-label">Select Which to Run <br></div>
-
-                <div class="sidenav-item">
-                    <input type="checkbox" id="insertion-check" name="insertion-check" value="1" checked>
-                    <label for="insertion-check">Insertion Sort</label>
-                </div>
-                <div class="sidenav-item">
-                    <input type="checkbox" id="selection-check" name="selection-check" value="1" checked>
-                    <label for="selection-check">Selection Sort</label>
-                </div>
-                <div class="sidenav-item">
-                    <input type="checkbox" id="merge-check" name="merge-check" value="1" checked>
-                    <label for="merge-check">Merge Sort</label>
-                </div>
-                <div class="sidenav-item">
-                    <input type="checkbox" id="quick-check" name="quick-check" value="1" checked>
-                    <label for="quick-check">Quick Sort</label>
-                </div>
-                <div class="sidenav-item">
-                    <input type="checkbox" id="bubble-check" name="bubble-check" value="1" checked>
-                    <label for="bubble-check">Bubble Sort</label>
-                </div>
-                
+            <div class="sidenav-item">
+                <input type="checkbox" id="selection-check" name="selection-check" value="1" checked>
+                <label for="selection-check">Selection Sort</label>
             </div>
+            <div class="sidenav-item">
+                <input type="checkbox" id="merge-check" name="merge-check" value="1" checked>
+                <label for="merge-check">Merge Sort</label>
+            </div>
+            <div class="sidenav-item">
+                <input type="checkbox" id="quick-check" name="quick-check" value="1" checked>
+                <label for="quick-check">Quick Sort</label>
+            </div>
+            <div class="sidenav-item">
+                <input type="checkbox" id="bubble-check" name="bubble-check" value="1" checked>
+                <label for="bubble-check">Bubble Sort</label>
+            </div>
+
         </div>
-        <div class="footer">
-            <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1">
-            <input type="button" id="run-button" onclick="setText()" value="Run"/>
-        </div>
+    </div>
+    <div class="footer">
+        <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1">
+        <input type="button" id="run-button" onclick="setText()" value="Run"/>
+    </div>
     </body>
 </html>
