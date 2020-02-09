@@ -103,7 +103,6 @@ function arrayButton() {
     document.getElementById("array-button").style.opacity = "50%";
 
     document.getElementById("run-button").onclick = nextStep;
-
     
     document.getElementById("insertion-run").onclick = function() { cinsertionSort(array); document.getElementById("next-tree-headline").innerHTML =""; document.getElementById("next-tree-headline").innerHTML += " Insertion Sort"; };
 
@@ -529,13 +528,11 @@ function nextStep(){
 
 
 function cselectionSort (arr) {
-    if(svg.selectAll("*") != 0) {
-        svg.selectAll("*").remove();
-    }
     //console.log("Selection -> " + arr);
     step = 0;
-    // THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY 
-    var svg = d3.select("#main-content")
+    // THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY
+    
+    svg = d3.select("#main-content")
     .append("svg")
     .attr("width", 800)
     .attr("height", 500);
@@ -596,12 +593,9 @@ function cselectionSort (arr) {
 //THIS IS THE INSERTION SORT
 
 function cinsertionSort (items) {
-    if(svg.selectAll("*") != 0) {
-        svg.selectAll("*").remove();
-    }
     step = 0;
     // THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY 
-    var svg = d3.select("#main-content")
+    svg = d3.select("#main-content")
     .append("svg")
     .attr("width", 800)
     .attr("height", 500);
@@ -658,12 +652,9 @@ function cinsertionSort (items) {
 //THIS IS THE BUBBLE SORT           
 
 function cbubbleSort (items) {
-    if(svg.selectAll("*") != 0) {
-        svg.selectAll("*").remove();
-    }
     step = 0;
     // THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY 
-    var svg = d3.select("#main-content")
+    svg = d3.select("#main-content")
     .append("svg")
     .attr("width", 800)
     .attr("height", 500);
@@ -747,12 +738,9 @@ function cpartition(arr, left, right) {
 }
 
 function cqSort(arr,l,r) {
-    if(svg.selectAll("*") != 0) {
-        svg.selectAll("*").remove();
-    }
     step = 0;
     // THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY 
-    var svg = d3.select("#main-content")
+    svg = d3.select("#main-content")
     .append("svg")
     .attr("width", 800)
     .attr("height", 500);
