@@ -124,9 +124,7 @@ function setText() {
         arrayInp = input.split(',');
         array = arrayInp.map(Number);
     }
-    var paragraph = document.getElementById("output-section");
-    paragraph.innerHTML = "";
-
+    var paragraph = "";
 
     if (document.getElementById('insertion-check').checked) {
         start = performance.now();
@@ -135,12 +133,8 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
-            paragraph.innerHTML += "<b> Insertion sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " seconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse1").innerHTML = "Insertion Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
-            paragraph.innerHTML += "<b> Insertion sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " milliseconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse1").innerHTML = "Insertion Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -154,12 +148,8 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
-            paragraph.innerHTML += "<b> Selection sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " seconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse2").innerHTML = "Selection Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
-            paragraph.innerHTML += "<b> Selection sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " milliseconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse2").innerHTML = "Selection Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -175,12 +165,8 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
-            paragraph.innerHTML += "<b> Merge sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " seconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse3").innerHTML = "Merge Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
-            paragraph.innerHTML += "<b> Merge sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " milliseconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse3").innerHTML = "Merge Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -194,12 +180,8 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
-            paragraph.innerHTML += "<b> Quick sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " seconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse4").innerHTML = "Quick Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
-            paragraph.innerHTML += "<b> Quick sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " milliseconds\n" + sortedArray + "<br>";
-            document.getElementById("collapse4").innerHTML = "Quick Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -215,12 +197,8 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
-            paragraph.innerHTML += "<b> Bubble sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " seconds\n" + bubArray + "<br>";
-            document.getElementById("collapse5").innerHTML = "Bubble Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
-            paragraph.innerHTML += "<b> Bubble sort </b> took " + (Math.round(timeLength * 10000) / 10000) + " milliseconds\n" + bubArray + "<br>";
-            document.getElementById("collapse5").innerHTML = "Bubble Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -275,7 +253,7 @@ function qSort(arr,l,r) {
 }
 
 function insertionSort (items) {
-    document.getElementById("insertion-content").innerHTML ="";
+    //document.getElementById("insertion-content").innerHTML ="";
     for (var i = 0; i < items.length; i++) {
         let value = items[i]
         // store the current item value so it can be placed right
@@ -295,7 +273,7 @@ function insertionSort (items) {
 
 function selectionSort (arr) {
     //console.log("Selection -> " + arr);
-    document.getElementById("selection-content").innerHTML ="";
+    //document.getElementById("selection-content").innerHTML ="";
     uarray = arr;
     if (uarray.length <= 1) {
         return uarray;
