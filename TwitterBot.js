@@ -16,7 +16,7 @@ function tweetEvent(tweet) {
     var nameID  = tweet.id_str;
 
 
-    
+
     // Get rid of the @ mention
      var txt = txt.replace(/@DataBot10/g, "");
     //parsed array
@@ -27,8 +27,11 @@ function tweetEvent(tweet) {
     for(i = 0; i < parsed.length;++i)
     {
         parsed[i] = parseInt(parsed[i], 10);
+        if(Number.isNaN(parsed[i]))
+        {
+            console.error("INVALID STUFF YOU IDIOT");
+        }
     }
-
     console.error(txt);
     console.error(parsed);
   
