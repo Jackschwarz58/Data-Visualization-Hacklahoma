@@ -124,7 +124,7 @@ function setText() {
         arrayInp = input.split(',');
         array = arrayInp.map(Number);
     }
-    var paragraph = "";
+    var paragraph ="";
 
     if (document.getElementById('insertion-check').checked) {
         start = performance.now();
@@ -133,8 +133,10 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
+            document.getElementById("collapse1").innerHTML = "Insertion Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
+            document.getElementById("collapse1").innerHTML = "Insertion Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -148,8 +150,10 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
+            document.getElementById("collapse2").innerHTML = "Selection Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
+            document.getElementById("collapse2").innerHTML = "Selection Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -165,8 +169,10 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
+            document.getElementById("collapse3").innerHTML = "Merge Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
+            document.getElementById("collapse3").innerHTML = "Merge Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -180,8 +186,10 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
+            document.getElementById("collapse4").innerHTML = "Quick Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
+            document.getElementById("collapse4").innerHTML = "Quick Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
@@ -197,8 +205,11 @@ function setText() {
         timeLength = end - start;
         if(timeLength > 1000) {
             timeLength = timeLength / 1000;
+
+            document.getElementById("collapse5").innerHTML = "Bubble Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
         }
         else {
+            document.getElementById("collapse5").innerHTML = "Bubble Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " ms</font>";
         }
         timeLength = 0;
     }
