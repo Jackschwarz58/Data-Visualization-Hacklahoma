@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link href="style.css" rel="stylesheet">
+        <script src="AVLTree.js"></script>
+    </head>
+
+
+    <body>
+        <div class="col">
+            <div class="navbar">
+                <a class="navbutton">Testing 1</a>
+                <a class="navbutton">Testing 2</a>
+                <a class="navbutton">Testing 3</a>
+            </div>
+            <div id="svgcont"></div>
+            <div class="inputbox">
+                <label style="padding: 4px 4px">Input:</label><input id="arrayinput" type="text">
+                <button id="gobutton" onclick="doArray()">Go!</button>
+            </div>
+        </div>
+        <script>
+            var width = 800;
+            var height = 500;
+            var svg = d3.select("#svgcont")
+            .append("svg").attr("width", width)
+            .attr("height", height);
+
+
+            function doArray() {
+                var tree = new AvlTree();
+                var numArray = [];
+                var input = document.getElementById("arrayinput").value;
+                arrayInp = input.split(',');
+                numArray = arrayInp.map(Number);
+
+
+                var i;
+                for(i=0;i<numArray.length;i++)
+                {
+                    tree.insert(numArray[i]);
+                }
+
+                //printTree(tree.root());
+                index = 0;
+                rootHeight = tree.root().height;
+                svg.selectAll("*").remove();
+                displayTree(tree.root());
+
+            }
+
+            function printTree(node) {
+                if(node != null) {
+                    printTree(node.left);
+                    console.log(node.key);
+                    printTree(node.right);
+                }
+            }
+
+            function displayTree(node) {
+                if(node != null) {
+                    displayTree(node.left);
+                    index++;
+
+                    var nodeXLoc = index * 50 + 5;
+                    var nodeYLoc = Math.abs(rootHeight - node.height) * 75 + 75;
+                    var grup = svg.append("g");
+
+                    var sqr = grup.append("circle")
+                    .attr("id", function(d){ return "node"+node.key; })
+                    .attr("r", 30).attr("fill", "white")
+                    .attr("stroke", "black")
+                    .attr("cx", nodeXLoc).attr("cy", nodeYLoc);
+
+                    var txt = grup.append("text")
+                    .attr("x", nodeXLoc - 5)
+                    .attr("y", nodeYLoc)
+                    .attr("fill", "black")
+                    .text(node.key);
+                    displayTree(node.right);
+
+                    if(node.left) {
+                        var lnode = d3.select("#node" + node.left.key);
+                        var lcon = grup.append("line")
+                        .attr("x1", nodeXLoc).attr("y1", nodeYLoc+30)
+                        .attr("x2", lnode.attr("cx")).attr("y2", lnode.attr("cy")-(lnode.attr("r")))
+                        .attr("stroke", "black").attr("stroke-width", 1);
+                    }
+
+                    if(node.right) {
+                        var rnode = d3.select("#node" + node.right.key);
+
+                        var rcon = grup.append("line")
+                        .attr("x1", nodeXLoc).attr("y1", nodeYLoc+30)
+                        .attr("x2", rnode.attr("cx")).attr("y2", rnode.attr("cy")-(rnode.attr("r")))
+                        .attr("stroke", "black").attr("stroke-width", 1);
+                    }
+
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
+
+
