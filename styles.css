@@ -1,53 +1,12 @@
-textarea {
-    resize: none;
-    width: 96vw
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  /*width: 100%;*/
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-td:nth-child(even) {
-  background-color: #eeeeee;
-}
-
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 30px;
-}
-
-
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
-
-.content {
-  padding: 0 18px 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-} 
 
 body {
   background-color: #FFFFFF;
-    background: url(/assets/austin.jpg);
+}
+h1 {
+  color: blue;
+}
+p {
+  color: red;
 }
 
 /* The sidebar menu */
@@ -117,8 +76,4 @@ body {
 
 .footer input {
     align-content: 
-}
-
-.main-head {
-  grid-area: wrapper;
 }

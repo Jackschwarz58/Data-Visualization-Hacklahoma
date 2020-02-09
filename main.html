@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mainstyle.css">
+        <script type="text/javascript" src="resources/js/script.js"></script>
+    </head>
+
+    <style></style>
+    <body>
+        <div class="header">
+            DataStructures.online
+        </div>
+        <div class="center-main">
+            <p>Input: <br><span id="demo"></span></p>
+
+            <div class="main-content">
+                <button type="button" class="collapsible" id="collapse1">Insertion Sort</button>
+                <div class="content">
+                    <p id="insertion-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse2">Selection Sort</button>
+                <div class="content">
+                    <p id="selection-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse3">Merge Sort</button>
+                <div class="content">
+                    <p id="merge-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse4">Quick Sort</button>
+                <div class="content">
+                    <p id="quick-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse5">Bubble Sort</button>
+                <div class="content">
+                    <p id="bubble-content"></p>
+                </div> 
+
+                <h3>Output<br></h3>
+                <p id="output-section"></p>
+
+
+                <script>
+                    var coll = document.getElementsByClassName("collapsible");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                                content.style.display = "none";
+                            } else {
+                                content.style.display = "block";
+                            }
+                        });
+                    } 
+                </script>
+            </div>
+            <div class="sidebar">
+                <div class="sidenav-item">
+                    <input type="checkbox" id="I Dont" name="1" value="1">
+                    <label for="I Dont">I Dont know</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="I Dont" name="1" value="1">
+                    <label for="I Dont">I Dont know</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="I Dont" name="1" value="1">
+                    <label for="I Dont">I Dont know</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="I Dont" name="1" value="1">
+                    <label for="I Dont">I Dont know</label>
+                </div>
+            </div>
+
+            <div class="footer">
+                <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1"></input>
+            <!--<input type="image" width="25px" height="25px" src="./assets/run.png" name="saveForm" class="btTxt submit" id="saveForm" /> -->
+            <input type="button" id="run-button" onclick="setText()" value="Run"/>
+        </div>
+
+    </body>
+</html>

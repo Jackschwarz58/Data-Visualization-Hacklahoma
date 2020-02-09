@@ -7,45 +7,56 @@ var sortedArray;
 
 function setText() {
     var input = document.getElementById("input").value;
-    document.getElementById("demo").textContent = "Input String: " + input;
-    arrayInp = input.split(',');
-    array = arrayInp.map(Number);
+    if(input.length == 0) {
+        array = Array.from({length: 10}, () => Math.floor(Math.random() * 40));
+        document.getElementById("demo").textContent = "No Input, generating array: " + array;
+    } else {
+        document.getElementById("demo").textContent = "Input String: " + input;
+        arrayInp = input.split(',');
+        array = arrayInp.map(Number);
+    }
     var paragraph = document.getElementById("output-section");
     
-    document.getElementById("work-section").innerHTML += "<h4>Merge sort</h4>";
     var start = performance.now();
     sortedArray = mergeSort(array.slice());
     var end = performance.now();
     timeLength = end - start;
     paragraph.innerHTML += "<b> Merge sort </b> took " + (Math.round(timeLength * 100) / 100) + " seconds\n" + sortedArray + "<br>";
+    document.getElementById("collapse3").innerHTML = "Merge Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
     
-    document.getElementById("work-section").innerHTML += "<h4>Bubble sort</h4>";
     start = performance.now();
     bubArray = bubbleSort(array.slice());
     end = performance.now();
     timeLength = end - start;
     paragraph.innerHTML += "<b> Bubble sort </b> took " + (Math.round(timeLength * 100) / 100) + " seconds\n" + bubArray + "<br>";
+    document.getElementById("collapse5").innerHTML = "Bubble Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
     
-    document.getElementById("work-section").innerHTML += "<h4>Selection sort</h4>";
+    console.log("here29");
+    
     start = performance.now();
     sortedArray = selectionSort(array.slice());
     end = performance.now();
     timeLength = end - start;
     paragraph.innerHTML += "<b> Selection sort </b> took " + (Math.round(timeLength * 100) / 100) + " seconds\n" + sortedArray + "<br>";
+    document.getElementById("collapse2").innerHTML = "Selection Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
     
-    document.getElementById("work-section").innerHTML += "<h4>Insertion sort</h4>";
+     console.log("here38");
+    
     start = performance.now();
     sortedArray = insertionSort(array.slice());
     end = performance.now();
     timeLength = end - start;
     paragraph.innerHTML += "<b> Insertion sort </b> took " + (Math.round(timeLength * 100) / 100) + " seconds\n" + sortedArray + "<br>";
+    document.getElementById("collapse1").innerHTML = "Insertion Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
     
-    document.getElementById("work-section").innerHTML += "<h4>Quick sort</h4>";
+     console.log("here47");
+    
     start = performance.now();
     sortedArray = qSort(array.slice(),0,array.length - 1);
     end = performance.now();
     timeLength = end - start;
     paragraph.innerHTML += "<b> Quick sort </b> took " + (Math.round(timeLength * 100) / 100) + " seconds\n" + sortedArray + "<br>";
+    document.getElementById("collapse4").innerHTML = "Quick Sort | " + "<font size = 5>" + (Math.round(timeLength * 100) / 100) + " sec</font>";
 }
 
 function qSwap(arr,l,r) {
@@ -78,7 +89,7 @@ function qSort(arr,l,r) {
     //console.log("QSort -> " + arr);
     var index;
     var uarray = arr;
-    document.getElementById("work-section").innerHTML += uarray + "<br>";
+    document.getElementById("quick-content").innerHTML += uarray + "<br>";
     
     if(uarray.length > 1) {
         index = partition(uarray,l,r);
@@ -105,7 +116,7 @@ function insertionSort (items) {
     }
     // the last item we've reached should now hold the value of the currently sorted item
     items[j + 1] = value;
-      document.getElementById("work-section").innerHTML += items + "<br>";
+      document.getElementById("insertion-content").innerHTML += items + "<br>";
   }
 
   return items;
@@ -127,14 +138,14 @@ function selectionSort (arr) {
     }
     // Swap the current element with the smaller element
     [uarray[i], uarray[minIndex]] = [uarray[minIndex], uarray[i]]; // ES6 Swap
-      document.getElementById("work-section").innerHTML += uarray + "<br>";
+      document.getElementById("selection-content").innerHTML += uarray + "<br>";
   }
 
   return uarray;
 }
 
 function bubbleSort (items) {
-    document.getElementById("work-section").innerHTML += items + "<br>";
+    document.getElementById("bubble-content").innerHTML += items + "<br>";
     var length = items.length;
     //Number of passes
     for (var i = 0; i < length; i++) { 
@@ -147,7 +158,7 @@ function bubbleSort (items) {
                 items[j] = items[j+1]; //Replace current number with adjacent number
                 items[j+1] = tmp; //Replace adjacent number with current number
             }
-            document.getElementById("work-section").innerHTML += items + "<br>";
+            document.getElementById("bubble-content").innerHTML += items + "<br>";
         }        
     }
     return items;
@@ -157,7 +168,7 @@ function bubbleSort (items) {
 function mergeSort(arr) {
     //console.log("Merge -> " + arr);
     uarray = arr;
-    document.getElementById("work-section").innerHTML += uarray + "<br>";
+    document.getElementById("merge-content").innerHTML += uarray + "<br>";
   // No need to sort the array if the array only has one element or empty
   if (uarray.length <= 1) {
     return uarray;
