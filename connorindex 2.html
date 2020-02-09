@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+      <link rel="stylesheet" href="styles.css">
+   </head>
+    <body> 
+<!--
+        <svg width = "300" height = "300">
+            <rect id ="fuck" x = "20" y = "20" width = "300" height = "300" fill = "green"></rect>
+        </svg>
+-->
+<!--------- THIS IS THE SIDEBAR SECTION FOR DATA LATER ---------->
+        <div class="sidenav">
+            <button id="nextStep" onclick="nextStep()"> Next</button>
+          <div class="sidenav-item">
+            <input type="checkbox" id="I Dont" name="1" value="1">
+            <label for="I Dont">I Dont know</label>
+          </div>
+          <div class="sidenav-item">
+            <input type="checkbox" id="I Dont" name="1" value="1">
+            <label for="I Dont">I Dont know</label>
+          </div>
+          <div class="sidenav-item">
+            <input type="checkbox" id="I Dont" name="1" value="1">
+            <label for="I Dont">I Dont know</label>
+          </div>
+          <div class="sidenav-item">
+            <input type="checkbox" id="I Dont" name="1" value="1">
+            <label for="I Dont">I Dont know</label>
+          </div>
+        </div>
+
+<!--------- THIS IS THE NAVBAR SECTION FOR DATA LATER ---------->
+        <div class="navbar">
+        </div>
+        
+<!------- THIS IS THE FOOTER SECTION FOR DATA LATER ----------->
+        <div class="footer">
+            <input type="image" width="25px" height="25px" src="./assets/run.png" name="saveForm" class="btTxt submit" id="saveForm" />
+        </div>
+        
+        
+        
+      <script>
+          
+          
+          var step = 0;
+// THIS PART OF THE CODE IS RESPOSIBLE FOR GENERATING THE BOXES FOR DISPLAY 
+          var svg = d3.select("body")
+                        .append("svg")
+                        .attr("width", 1000)
+                        .attr("height", 1000);
+          
+          var array = [5, 4, 3, 2, 9, 6];
+          var arrayMoves = new Array();
+          var rectangles = new Array();
+          var numbers = new Array();
+          var loop;
+          var position = 50;
+          var translate = 100;
+          for (loop = 0; loop < array.length; loop++){
+              
+          var rectangle = svg.append("rect")
+                        .attr("width", 50)
+                        .attr("height", 50)
+                        .attr("x", position)
+                        .attr("y", 150)
+                        .attr("fill", "#cccccc")
+                        .attr("stroke", "red");
+              
+          rectangles.push(rectangle);
+        
+          var arrayNumber = svg.append("text")
+                        .attr("x", position + 22)
+                        .attr("fill", "red")
+                        .attr("y", 180)
+                        .text(array[loop]);
+          
+          numbers.push(arrayNumber);
+              
+          position = position + translate;
+        
+          }
+          
+ THIS IS THE PART OF CODE WHERE I CALL AND RUN SORT ALGORITHMS 
+ THIS IS THE SELECTION SORT
+          selectionSort(array);
+                  
+          function selectionSort (arr) {
+            //console.log("Selection -> " + arr);
+            uarray = arr;
+            if (uarray.length <= 1) {
+            return uarray;
+            }
+
+            for (let i = 0; i < uarray.length; i++) {
+              let minIndex = i;
+              for (let j = i + 1; j < uarray.length; j++) {
+                if (uarray[j] < uarray[minIndex]) {
+                  minIndex = j;
+                }
+              }
+              // Swap the current element with the smaller element
+              [uarray[i], uarray[minIndex]] = [uarray[minIndex], uarray[i]]; // ES6 Swap
+              arrayMoves.push(i);
+              arrayMoves.push(minIndex);
+            }
+            console.log(arrayMoves);
+            return uarray;
+          }
+          
+
+  THIS IS THE INSERTION SORT
+          insertionSort(array);
+          
+          function insertionSort (items) {
+            for (var i = 0; i < items.length; i++) {
+            let value = items[i]
+            // store the current item value so it can be placed right
+                for (var j = i - 1; j > -1 && items[j] > value; j--) {
+                // loop through the items in the sorted array (the items from the current to the beginning)
+                // copy each item to the next one
+                items[j + 1] = items[j]
+                arrayMoves.push(j);
+                arrayMoves.push(j + 1);
+                //document.getElementById("work-section").innerHTML += items + "<br>";
+                }
+                // the last item we've reached should now hold the value of the currently sorted item
+                items[j + 1] = value;
+                //arrayMoves.push(j + 1);
+                //arrayMoves.push(i);
+              }
+          }
+   
+ THIS IS THE BUBBLE SORT           
+          bubbleSort(array);
+          
+          function bubbleSort (items) {
+          var length = items.length;
+          //Number of passes
+          for (var i = 0; i < length; i++) { 
+              //Notice that j < (length - i)
+              for (var j = 0; j < (length - i - 1); j++) { 
+                  //Compare the adjacent positions
+                  if(items[j] > items[j+1]) {
+                  //Swap the numbers
+                  var tmp = items[j];  //Temporary variable to hold the current number
+                  items[j] = items[j+1]; //Replace current number with adjacent number
+                  items[j+1] = tmp; //Replace adjacent number with current number
+                  arrayMoves.push(j);
+                  arrayMoves.push(j + 1);
+                      
+                  }
+              }        
+          }
+          return items;
+          }
+        
+          qSort(array, 0, 5)
+          
+          function qSwap(arr,l,r) {
+              var temp = arr[l];
+              arr[l] = arr[r];
+              arr[r] = temp;
+              arrayMoves.push(l);
+              arrayMoves.push(r);
+          }
+
+          function partition(arr, left, right) {
+              var pivot = arr[Math.floor((right + left) / 2)]; //middle element
+              var i = left; //left pointer
+              var j = right; //right pointer
+              while (i <= j) {
+                  while (arr[i] < pivot) {
+                      i++;
+                  }
+                  while (arr[j] > pivot) {
+                      j--;
+                  }
+                  if (i <= j) {
+                      qSwap(arr, i, j); //sawpping two elements
+                      i++;
+                      j--;
+                  }
+              }
+              return i;
+          }
+
+          function qSort(arr,l,r) {
+              //console.log("QSort -> " + arr);
+              var index;
+              var uarray = arr;
+
+              if(uarray.length > 1) {
+                  index = partition(uarray,l,r);
+
+                  if(l < index - 1) {
+                      qSort(uarray,l,index - 1);
+                  }
+                  if(index < r) {
+                      qSort(uarray,index,r);
+                  }
+              }
+              return uarray;
+          }
+          
+// THIS IS THE FUNCTION FOR CALLING THE NEXT STEPS OF THE TRANSITIONs          
+          function nextStep(){
+              console.log(arrayMoves[step]);
+              console.log(arrayMoves[step + 1]);
+              transition(arrayMoves[step], arrayMoves[step + 1]);
+              step = step + 2;   
+              console.log(step);
+          }
+          
+         //transition(2,2);
+
+          
+          
+          
+          
+          
+// THIS IS THE FUNCTION SPECIFICALLY USED FOR TRANSITIONING THE ELEMENTS.
+          function transition(left, right){
+          rectangles[left].transition()
+                    .duration(1500)
+                    .delay(2000)
+                    .attr("y", 250)
+                    .transition()
+                    .attr("x", (right * 100) + 50)
+                    .transition()
+                    .attr("y", 150)
+                    .each("end", function () { d3.select(this).style("stroke", "blue"); });
+          
+          numbers[left].transition()
+                    .duration(1500)
+                    .delay(2000)
+                    .attr("y", 276)
+                    .transition()
+                    .attr("x", (right * 100) + 73)
+                    .transition()
+                    .attr("y", 180)
+                    .each("end", function () { d3.select(this).style("fill", "blue"); });
+              
+         rectangles[right].transition()
+                    .duration(1500)
+                    .delay(2000)
+                    .attr("y", 50)
+                    .transition()
+                    .attr("x", (left * 100) + 50)
+                    .transition()
+                    .attr("y", 150)
+                    .each("end", function () { d3.select(this).style("stroke", "blue"); });
+          
+          numbers[right].transition()
+                    .duration(1500)
+                    .delay(2000)
+                    .attr("y", 76)
+                    .transition()
+                    .attr("x", (left * 100) + 73)
+                    .transition()
+                    .attr("y", 180)
+                    .each("end", function () { d3.select(this).style("fill", "blue"); });
+              
+        [rectangles[left], rectangles[right]] = [rectangles[right], rectangles[left]];
+        [numbers[left], numbers[right]] = [numbers[right], numbers[left]];
+
+          }
+                        
+      </script>
+    </body>
+</html>

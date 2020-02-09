@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mainstyle.css">
+        <script type="text/javascript" src="resources/js/script.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="resources/js/AVLTree.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="column left">
+                DataStructures.online
+            </div>
+            <div class="column right">
+                <button class="link-button" id="sort-button" style = "opacity: 50%" onclick="sortButton()">Sorting</button>
+                |
+                <button class="link-button" id="array-button" onclick="arrayButton()">Arrays</button>
+                |
+                <button class="link-button" id="tree-button" onclick="treeButton()">Trees</button>
+            </div>
+        </div>
+
+
+        <div class="center-main">
+            <div class="main-content"id = "main-content">
+                <p id = "input-head">Input: <br><span id="demo"></span></p>
+
+                <button type="button" class="collapsible" id="collapse1">Insertion Sort</button>
+                <div class="content">
+                    <p id="insertion-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse2">Selection Sort</button>
+                <div class="content">
+                    <p id="selection-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse3">Merge Sort</button>
+                <div class="content">
+                    <p id="merge-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse4">Quick Sort</button>
+                <div class="content">
+                    <p id="quick-content"></p>
+                </div> 
+                <button type="button" class="collapsible" id="collapse5">Bubble Sort</button>
+                <div class="content">
+                    <p id="bubble-content"></p>
+                </div> 
+
+                <h3>Output<br></h3>
+                <p id="output-section"></p>
+
+
+                <script>
+                    var coll = document.getElementsByClassName("collapsible");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                                content.style.display = "none";
+                            } else {
+                                content.style.display = "block";
+                            }
+                        });
+                    } 
+                </script>
+            </div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <div id="sidebar-options">
+                <div id = "sidebar-label">Select Which to Run <br></div>
+
+                <div class="sidenav-item">
+                    <input type="checkbox" id="insertion-check" name="insertion-check" value="1" checked>
+                    <label for="insertion-check">Insertion Sort</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="selection-check" name="selection-check" value="1" checked>
+                    <label for="selection-check">Selection Sort</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="merge-check" name="merge-check" value="1" checked>
+                    <label for="merge-check">Merge Sort</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="quick-check" name="quick-check" value="1" checked>
+                    <label for="quick-check">Quick Sort</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="bubble-check" name="bubble-check" value="1" checked>
+                    <label for="bubble-check">Bubble Sort</label>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1">
+            <input type="button" id="run-button" onclick="setText()" value="Run"/>
+        </div>
+    </body>
+</html>
