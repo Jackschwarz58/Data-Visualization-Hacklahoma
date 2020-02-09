@@ -6,15 +6,6 @@
    </head>
     <body> 
         
-    
-<!--
-    <svg width="100" height="100">
-        <g>
-            <rect x="0" y="0" width="200" height="100" stroke-width="3px" fill="#dddddd"/> 
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">TEXT</text>   
-        </g>
-    </svg>
--->
         
 <!--------- THIS IS THE SIDEBAR SECTION FOR DATA LATER ---------->
         <div class="sidenav">
@@ -45,40 +36,65 @@
             <input type="image" width="25px" height="25px" src="./assets/run.png" name="saveForm" class="btTxt submit" id="saveForm" />
         </div>
       <script>
+          
           var canvas = d3.select("body")
                         .append("svg")
                         .attr("width", 500)
                         .attr("height", 500);
           
+          var array = [5, 4, 3, 2, 1];
+          var loop;
+          var position = 50;
+          var translate = 100;
+          for (loop = 0; loop < array.length; loop++){
+          
+          // var group = canvas.append("g")
+                        //.attr("id", "my-group");
+          
+          //position = position + translate;
+              
           var rectangle = canvas.append("rect")
+                        //.attr("id", )
                         .attr("width", 50)
                         .attr("height", 50)
-                        .attr("x", 50)
+                        .attr("x", position)
                         .attr("y", 50)
                         .attr("fill", "#cccccc")
                         .attr("stroke", "red");
           
           var arrayNumber = canvas.append("text")
-                        .attr("x", 80)
+                        .attr("x", position + 22)
                         .attr("fill", "red")
                         .attr("y", 80)
-                        .text(4);
+                        .text(array[loop]);
+              
+              position = position + translate;
+        
+          }
+//          
+//          group.transition()
+//                    .duration(1500)
+//                    .delay(2000)
+//                    .attr("transform", "translate(50, 0)")
+//                    .transition()
+//                    .attr("transform", "translate(50,50)");
+         // d3.selectAll("rectangle")
           
           rectangle.transition()
                     .duration(1500)
                     .delay(2000)
-                    .attr("y",150)
+                    .attr("y", 150)
                     .transition()
                     .attr("x", 150)
-                    .each("end", function () { d3.select(this).attr("stroke", "blue"); });
+                    .each("end", function () { d3.select(this).style("stroke", "blue"); });
           
           arrayNumber.transition()
                     .duration(1500)
                     .delay(2000)
-                    .attr("y",150)
+                    .attr("y",177)
                     .transition()
-                    .attr("x", 150)
-                    .each("end", function () { d3.select(this).attr("fill", "blue"); });
+                    .attr("x", 173)
+                    .each("end", function () { d3.select(this).style("fill", "blue"); });
                         
       </script>
     </body>
