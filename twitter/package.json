@@ -1,0 +1,18 @@
+{
+  "name": "data_bot",
+  "version": "1.0.0",
+  "description": "This is a Data Visualization Bot that takes in arrays and replies with a link to a visual representation of the sorted array. ",
+  "main": "TwitterBot.js",
+  "scripts": {
+    "test": "/run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jackschwarz58/Data-Visualization-Hacklahoma/tree/austin"
+  },
+  "author": "Austin Warnock",
+  "license": "MIT",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}

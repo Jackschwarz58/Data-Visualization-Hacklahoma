@@ -5,8 +5,6 @@
         <link rel="stylesheet" href="mainstyle.css">
         <script type="text/javascript" src="resources/js/script.js"></script>
     </head>
-
-    <style></style>
     <body>
         <div class="header">
             DataStructures.online
@@ -57,30 +55,37 @@
                     } 
                 </script>
             </div>
+            
             <div class="sidebar">
+                <div id = "sidebar-label">Select Which to Run <br></div>
+                
                 <div class="sidenav-item">
-                    <input type="checkbox" id="I Dont" name="1" value="1">
-                    <label for="I Dont">I Dont know</label>
+                    <input type="checkbox" id="insertion-check" name="insertion-check" value="1" checked>
+                    <label for="insertion-check">Insertion Sort</label>
                 </div>
                 <div class="sidenav-item">
-                    <input type="checkbox" id="I Dont" name="1" value="1">
-                    <label for="I Dont">I Dont know</label>
+                    <input type="checkbox" id="selection-check" name="selection-check" value="1" checked>
+                    <label for="selection-check">Selection Sort</label>
                 </div>
                 <div class="sidenav-item">
-                    <input type="checkbox" id="I Dont" name="1" value="1">
-                    <label for="I Dont">I Dont know</label>
+                    <input type="checkbox" id="merge-check" name="merge-check" value="1" checked>
+                    <label for="merge-check">Merge Sort</label>
                 </div>
                 <div class="sidenav-item">
-                    <input type="checkbox" id="I Dont" name="1" value="1">
-                    <label for="I Dont">I Dont know</label>
+                    <input type="checkbox" id="quick-check" name="quick-check" value="1" checked>
+                    <label for="quick-check">Quick Sort</label>
+                </div>
+                <div class="sidenav-item">
+                    <input type="checkbox" id="bubble-check" name="bubble-check" value="1" checked>
+                    <label for="bubble-check">Bubble Sort</label>
                 </div>
             </div>
 
             <div class="footer">
-                <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1"></input>
+                <input name="user-number-input" id="input" placeholder="Input a comma seperated array (1,2,3,4...) or hit 'Run'" arraycols="200" rows="1">
             <!--<input type="image" width="25px" height="25px" src="./assets/run.png" name="saveForm" class="btTxt submit" id="saveForm" /> -->
             <input type="button" id="run-button" onclick="setText()" value="Run"/>
         </div>
-
+        </div>
     </body>
 </html>
