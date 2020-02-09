@@ -23,12 +23,13 @@ function treeButton()
         arraySidebarPaneHTML = document.getElementById("sidebar").innerHTML;
     }
     if(buttonclicked == "sort") {
-        sortPaneHTML = document.getElementById("main-content").innerHTML;
-        sortSidebarPaneHTML = document.getElementById("sidebar").innerHTML;
+        document.getElementById("main-content").innerHTML = sortPaneHTML;
+        document.getElementById("sidebar").innerHTML = sortSidebarPaneHTML;
     }
 
     buttonclicked = "tree";
     document.getElementById("main-content").innerHTML = "<div id='tree-headline'>Please enter input and click run below to create an AVL Tree...</div>";
+    document.getElementById("main-content").innerHTML += "<p><b>A</b>delson-<b>V</b>elsky and <b>L</b>andis (AVL) trees are self-balancing binary search trees. Self-balancing means that the tree will adjust so that the height difference between a node and child nodes (if present) is no more than one. Balancing is done with one or more rotations on a node. The self balancing keeps the height of the entire tree (log <i>n</i>), where n is the total number of nodes in the tree. This allows the upper bound of traversal,insertion, and deletion to remain <i>O</i>(log <i>n</i>).</p>";
     document.getElementById("sidebar").innerHTML = "";
 
     document.getElementById("sort-button").style.opacity = "100%";
@@ -274,6 +275,7 @@ function qSort(arr,l,r) {
 }
 
 function insertionSort (items) {
+    document.getElementById("insertion-content").innerHTML ="";
     for (var i = 0; i < items.length; i++) {
         let value = items[i]
         // store the current item value so it can be placed right
@@ -293,6 +295,7 @@ function insertionSort (items) {
 
 function selectionSort (arr) {
     //console.log("Selection -> " + arr);
+    document.getElementById("selection-content").innerHTML ="";
     uarray = arr;
     if (uarray.length <= 1) {
         return uarray;
@@ -378,11 +381,13 @@ function merge (left, right) {
 }
 
 function doArray() {
-    var tree = new AvlTree();
-    var numArray = [];
+    tree = new AvlTree();
+    numArray = [];
     var input = document.getElementById("input").value;
     arrayInp = input.split(',');
     numArray = arrayInp.map(Number);
+    
+    //document.getElementById("main-content").innerHTML += " " + arrayInp;
 
     console.log(arrayInp);
 
