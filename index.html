@@ -37,10 +37,16 @@
 
 
                 var i;
+                var dupes = false;
                 for(i=0;i<numArray.length;i++)
                 {
-                    tree.insert(numArray[i]);
+                    if(!tree.contains(numArray[i]))
+                    {
+                        tree.insert(numArray[i]);
+                    }
                 }
+                
+                alert("Duplicates in array!");
 
                 //printTree(tree.root());
                 index = 0;
