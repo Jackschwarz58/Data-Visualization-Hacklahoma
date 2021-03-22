@@ -13,13 +13,14 @@ We just started learning JavaScript and its libraries. There was a very steep le
 # Accomplishments that I'm proud of
 We are very proud of taking on a project outside of our initial skill set. We learned a lot about web servers, and website coding languages.
 
+![Hacklahoma](https://user-images.githubusercontent.com/36314170/112013445-09733600-8af8-11eb-8737-5c7dc4019b27.png)
 
-https://user-images.githubusercontent.com/36314170/112011701-82718e00-8af6-11eb-88b3-13f64b095099.mov
+![Hackathon](https://user-images.githubusercontent.com/36314170/112013483-0f691700-8af8-11eb-8748-49e910ecca48.gif)
 
-https://user-images.githubusercontent.com/36314170/112011724-87ced880-8af6-11eb-977c-ce3c65a96ec2.mov
+![HackTree](https://user-images.githubusercontent.com/36314170/112013503-12fc9e00-8af8-11eb-9272-d830b2d17bb0.gif)
 
 
-
+# Planning
 
 
 
